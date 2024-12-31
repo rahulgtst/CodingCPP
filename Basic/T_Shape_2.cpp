@@ -64,7 +64,22 @@ vector<int> primeNumbers(int n) {
     return result;
 }
 
+void printPyramid(int n) {
+    string stars = "*";
+    for(int i = 1; i <= n; i++) {
+        string pattern = stars;
+        for(int j = i; j < n ; j++) {
+            pattern = " " + pattern;
+        }
+        cout << pattern << endl;
+        stars = "*" + stars + "*";
+    }
+}
+
 void solve(){
+    int n;
+    cin >> n;
+    printPyramid(n);
     return;
 }
 

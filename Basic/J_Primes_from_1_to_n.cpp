@@ -65,6 +65,10 @@ vector<int> primeNumbers(int n) {
 }
 
 void solve(){
+    int n;
+    cin >> n;
+    vector<int> primeArray = primeNumbers(n);
+    printArray(primeArray);
     return;
 }
 

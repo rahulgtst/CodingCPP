@@ -43,28 +43,16 @@ vector<int> divisors(int n) {
 void printArray(vector<int>& arr) {
     int n = arr.size();
     for(int i=0; i < n; i++) {
-        cout << arr[i] << " ";
+        cout << arr[i] << endl;
     }
-}
-
-bool isPrime(int n) {
-    for(int i = 2; i * i <= n; i++) {
-        if(n % i == 0) return false;
-    }
-    return true;
-}
-
-vector<int> primeNumbers(int n) {
-    vector<int> result;
-    
-    for(int i = 2; i <= n; i++) {
-        if(isPrime(i)) result.push_back(i);
-    }
-
-    return result;
 }
 
 void solve(){
+    int n;
+    cin >> n;
+    vector<int> divisor = divisors(n);
+    sort(divisor.begin(), divisor.end());
+    printArray(divisor);
     return;
 }
 

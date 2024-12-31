@@ -64,7 +64,49 @@ vector<int> primeNumbers(int n) {
     return result;
 }
 
+void printPyramid(int n) {
+    string stars = "*";
+    for(int i = 1; i <= n; i++) {
+        string pattern = stars;
+        for(int j = i; j < n ; j++) {
+            pattern = " " + pattern;
+        }
+        cout << pattern << endl;
+        stars = "*" + stars + "*";
+    }
+}
+
+inline void rtrim(string &s) {
+    s.erase(find_if(s.rbegin(), s.rend(), [](unsigned char ch) {
+        return !isspace(ch);
+    }).base(), s.end());
+}
+
+void printDownPyramid(int n) {
+    string stars = "";
+    for(int i = 0; i < 2 * n - 1; i++) {
+        stars += "*";
+    }
+    for(int i = 0; i < n; i++) {
+        string pattern = stars;
+        for(int j = 0; j < i; j++) {
+            pattern[j] = ' ';
+            pattern[2 * n - 2 - j] = ' ';
+        }
+        rtrim(pattern);
+        cout << pattern << endl;
+    }
+}
+
+void printDiamond(int n) {
+    printPyramid(n);
+    printDownPyramid(n);
+}
+
 void solve(){
+    int n;
+    cin >> n;
+    printDiamond(n);
     return;
 }
 
