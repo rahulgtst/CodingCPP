@@ -86,44 +86,18 @@ bool isPallindrome(vector<int>& arr) {
     return true;
 }
 
-int linearSearch(vector<int>& arr, int x) {
-    int n = arr.size();
-
-    for(int i = 0; i < n; i++) {
-        if(arr[i] == x) return i;
-    }
-
-    return -1;
-}
-
-bool linearSearchInMatrix(vector<vector<int>>& arr, int x) {
-    int n = arr.size();
-    int m = arr[0].size();
-
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < m; j++) {
-            if(arr[i][j] == x) return true;
-        }
-    }
-
-    return false;
-}
-
-bool isSubsequence(vector<ll>& a, vector<ll>& b) {
-    int n = a.size();
-    int m = b.size();
-    int i = 0;
-    int j = 0;
-
-    while(i < n && j < m) {
-        if(a[i] == b[j]) j++;
-        i++;
-    }
-
-    return j == m;
-}
-
 void solve(){
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    if(isPallindrome(arr)) cout << "YES";
+    else cout << "NO";
+    
     return;
 }
 

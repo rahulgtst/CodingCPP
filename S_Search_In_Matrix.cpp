@@ -109,21 +109,22 @@ bool linearSearchInMatrix(vector<vector<int>>& arr, int x) {
     return false;
 }
 
-bool isSubsequence(vector<ll>& a, vector<ll>& b) {
-    int n = a.size();
-    int m = b.size();
-    int i = 0;
-    int j = 0;
-
-    while(i < n && j < m) {
-        if(a[i] == b[j]) j++;
-        i++;
+void solve(){
+    int n, m, x;
+    cin >> n >> m;
+    vector<vector<int>> arr(n, vector<int>(m));
+    
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < m; j++) {
+            cin >> arr[i][j];
+        }
     }
 
-    return j == m;
-}
+    cin >> x;
 
-void solve(){
+    if(!linearSearchInMatrix(arr, x)) cout << "will take number";
+    else cout << "will not take number";
+    
     return;
 }
 

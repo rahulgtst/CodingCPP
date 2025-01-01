@@ -96,40 +96,35 @@ int linearSearch(vector<int>& arr, int x) {
     return -1;
 }
 
-bool linearSearchInMatrix(vector<vector<int>>& arr, int x) {
-    int n = arr.size();
-    int m = arr[0].size();
-
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < m; j++) {
-            if(arr[i][j] == x) return true;
-        }
-    }
-
-    return false;
-}
-
-bool isSubsequence(vector<ll>& a, vector<ll>& b) {
-    int n = a.size();
-    int m = b.size();
-    int i = 0;
-    int j = 0;
-
-    while(i < n && j < m) {
-        if(a[i] == b[j]) j++;
-        i++;
-    }
-
-    return j == m;
-}
-
 void solve(){
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    int k = 1;
+
+    while(k <= n) {
+        for(int i = 0; i < n - k + 1; i++) {
+            int res = -1000000000;
+            for(int j = 0; j < k; j++) {
+                res = max(res, arr[i + j]);
+            }
+            cout << res << " ";
+        }
+        k++;
+    }
+    cout << endl;
+    
     return;
 }
 
 int main() {
     int t = 1;
-    // cin >> t;
+    cin >> t;
     while(t--) {
         solve();
     }
