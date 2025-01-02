@@ -164,6 +164,10 @@ int binarySearch(vector<ll>& arr, ll x) {
 }
 
 void solve(){
+    string s, t;
+    cin >> s >> t;
+    cout << s.size() << " " << t.size() << endl;
+    cout << s << " " << t << endl;
     return;
 }
 

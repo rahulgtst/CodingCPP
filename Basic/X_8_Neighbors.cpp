@@ -147,23 +147,22 @@ bool isAllNeighbourX(vector<vector<char>>& arr, int x, int y) {
     return true;
 }
 
-int binarySearch(vector<ll>& arr, ll x) {
-    int n = arr.size();
+void solve(){
+    int n, m, x, y;
+    cin >> n >> m;
 
-    int low = 0;
-    int high = n - 1;
+    vector<vector<char>> arr(n, vector<char>(m, '.'));
 
-    while(low <= high) {
-        int mid = low + (high - low) / 2;
-        if(arr[mid] == x) return mid;
-        else if(arr[mid] < x) low = mid + 1;
-        else high = mid - 1;
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < m; j++) {
+            cin >> arr[i][j];
+        }
     }
 
-    return -1;
-}
+    cin >> x >> y;
 
-void solve(){
+    if(isAllNeighbourX(arr, x - 1, y - 1)) cout << "yes";
+    else cout << "no";
     return;
 }
 

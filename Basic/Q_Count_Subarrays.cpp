@@ -11,11 +11,6 @@ using namespace std;
 typedef long long int ll;
 typedef unsigned long long int ull;
 
-vector<int> dx = {-1, 0, 0, 1};
-vector<int> dy = {0, -1, 1, 0};
-vector<int> ddx = {-1, -1, -1, 0, 0, 1, 1, 1};
-vector<int> ddy = {-1, 0, 1, -1, 1, -1, 0, 1};
-
 int gcd(int a, int b) {
     if(b == 0) return a;
     return gcd(b, a % b);
@@ -128,48 +123,34 @@ bool isSubsequence(vector<ll>& a, vector<ll>& b) {
     return j == m;
 }
 
-bool isValidCell(int n, int m, int x, int y) {
-    return (x >=0 && x < n && y >= 0 && y < m);
-}
+void solve(){
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
 
-bool isAllNeighbourX(vector<vector<char>>& arr, int x, int y) {
-    int n = arr.size();
-    int m = arr[0].size();
-
-    for(int i = 0; i < 8; i++){
-        int cx = x + ddx[i];
-        int cy = y + ddy[i];
-        if(isValidCell(n, m, cx, cy)) {
-            if(arr[cx][cy] != 'x') return false;
+    int result = 0;
+    int j = 0;
+    
+    for(int i = 1; i < n; i++) {
+        if(arr[i] < arr[i-1]) {
+            result += ((i - j)*(i - j + 1))/2;
+            j = i;
         }
     }
 
-    return true;
-}
+    result += ((n - j)*(n - j + 1))/2;
 
-int binarySearch(vector<ll>& arr, ll x) {
-    int n = arr.size();
-
-    int low = 0;
-    int high = n - 1;
-
-    while(low <= high) {
-        int mid = low + (high - low) / 2;
-        if(arr[mid] == x) return mid;
-        else if(arr[mid] < x) low = mid + 1;
-        else high = mid - 1;
-    }
-
-    return -1;
-}
-
-void solve(){
+    cout << result << endl;
     return;
 }
 
 int main() {
     int t = 1;
-    // cin >> t;
+    cin >> t;
     while(t--) {
         solve();
     }

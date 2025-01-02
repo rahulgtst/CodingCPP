@@ -164,6 +164,9 @@ int binarySearch(vector<ll>& arr, ll x) {
 }
 
 void solve(){
+    string s, t;
+    cin >> s >> t;
+    cout << min(s, t);
     return;
 }
 

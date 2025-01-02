@@ -164,6 +164,22 @@ int binarySearch(vector<ll>& arr, ll x) {
 }
 
 void solve(){
+    int n, q;
+    cin >> n >> q;
+
+    vector<ll> arr(n);
+    
+    for(int i = 0; i < n; i++) cin >> arr[i];
+
+    sort(arr.begin(), arr.end());
+
+    while(q--) {
+        ll x;
+        cin >> x;
+        if(binarySearch(arr, x) == -1) cout << "not found" << endl;
+        else cout << "found" << endl;
+    }
+
     return;
 }
 

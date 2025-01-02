@@ -164,6 +164,12 @@ int binarySearch(vector<ll>& arr, ll x) {
 }
 
 void solve(){
+    string s;
+    getline(cin, s);
+    for(const char ch: s) {
+        if(ch == '\\') break;
+        cout << ch;
+    }
     return;
 }
 

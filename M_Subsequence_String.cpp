@@ -114,7 +114,7 @@ bool linearSearchInMatrix(vector<vector<int>>& arr, int x) {
     return false;
 }
 
-bool isSubsequence(vector<ll>& a, vector<ll>& b) {
+bool isSubsequence(string a, string b) {
     int n = a.size();
     int m = b.size();
     int i = 0;
@@ -164,6 +164,10 @@ int binarySearch(vector<ll>& arr, ll x) {
 }
 
 void solve(){
+    string s;
+    cin >> s;
+    if(isSubsequence(s, "hello")) cout << "YES";
+    else cout << "NO";
     return;
 }
 
