@@ -165,6 +165,16 @@ int binarySearch(vector<ll>& arr, ll x) {
 }
 
 void solve(){
+    int n, num, count = 0;
+    cin >> n;
+
+    loop(n) {
+        cin >> num;
+        if(num & 1) count++;
+    }
+
+    if(count & 1) cout << "NO";
+    else cout << "YES";
     return;
 }
 

@@ -5,7 +5,6 @@
 
 #define endl "\n"
 #define PI 3.141592653
-#define loop(n) for(int i = 0; i < n; i++)
 
 using namespace std;
 
@@ -165,6 +164,22 @@ int binarySearch(vector<ll>& arr, ll x) {
 }
 
 void solve(){
+    int n;
+    cin >> n;
+
+    ll num, prevNum, minimumMoves = 0;
+    for(int i = 0; i < n; i++) {
+        cin >> num;
+        if(i != 0) {
+            if(prevNum > num) {
+                minimumMoves += (prevNum - num);
+                continue;
+            }
+        }
+        prevNum = num;
+    }
+
+    cout << minimumMoves;
     return;
 }
 

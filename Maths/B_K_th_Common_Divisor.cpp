@@ -165,6 +165,14 @@ int binarySearch(vector<ll>& arr, ll x) {
 }
 
 void solve(){
+    int a, b, k;
+    cin >> a >> b >> k;
+
+    vector<int> divisor = divisors(gcd(a, b));
+    sort(divisor.begin(), divisor.end());
+
+    int len = divisor.size();
+    cout << divisor[len - k];
     return;
 }
 

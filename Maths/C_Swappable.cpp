@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <vector>
 #include <algorithm>
+#include <map>
 
 #define endl "\n"
 #define PI 3.141592653
@@ -165,6 +166,22 @@ int binarySearch(vector<ll>& arr, ll x) {
 }
 
 void solve(){
+    ull n, num;
+    cin >> n;
+
+    map<ull, ull> freq;
+    ull result = ((n - 1) * n) >> 1;
+
+    loop(n) {
+        cin >> num;
+        freq[num]++;
+    }
+
+    for(const auto ele: freq) {
+        result -= (((ele.second - 1) * ele.second) >> 1);
+    }
+
+    cout << result;
     return;
 }
 

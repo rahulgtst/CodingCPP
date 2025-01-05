@@ -5,7 +5,6 @@
 
 #define endl "\n"
 #define PI 3.141592653
-#define loop(n) for(int i = 0; i < n; i++)
 
 using namespace std;
 
@@ -165,6 +164,17 @@ int binarySearch(vector<ll>& arr, ll x) {
 }
 
 void solve(){
+    int n;
+    cin >> n;
+
+    ull num, realSum = 0, actualSum = n;
+    for(int i = 1; i < n; i++) {
+        cin >> num;
+        realSum += num;
+        actualSum += i;
+    }
+
+    cout << actualSum - realSum;
     return;
 }
 
