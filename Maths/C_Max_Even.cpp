@@ -149,7 +149,31 @@ bool isAllNeighbourX(vector<vector<char>>& arr, int x, int y) {
 }
 
 void solve(){
-    return;
+    int n, e;
+    cin >> n;
+    vector<int> odd, even;
+
+    for(int i = 0; i < n; i++) {
+        cin >> e;
+        if(e & 1) odd.push_back(e);
+        else even.push_back(e);
+    }
+
+    int oddSize = odd.size();
+    int evenSize = even.size();
+
+    if (oddSize < 2 && evenSize < 2) {
+        cout << -1 << endl;
+        return;
+    }
+
+    if (oddSize >= 2) sort(odd.begin(), odd.end());
+    if (evenSize >= 2) sort(even.begin(), even.end());
+
+    int oddMax = (oddSize >= 2) ? odd[oddSize-1] + odd[oddSize-2] : -1;
+    int evenMax = (evenSize >= 2) ? even[evenSize-1] + even[evenSize-2] : -1;
+
+    cout << max(oddMax, evenMax) << endl;
 }
 
 int main() {

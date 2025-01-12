@@ -6,11 +6,6 @@
 #define endl "\n"
 #define PI 3.141592653
 #define loop(n) for(int i = 0; i < n; i++)
-#define gcd(a, b) __gcd(a, b)
-#define binary_search(arr, target) binary_search(arr.begin(), arr.end(), target)
-#define lower_bound(arr, target) lower_bound(arr.begin(), arr.end(), target) // if found return pointer to element greater than equal to target else return arr.end
-#define upper_bound(arr, target) upper_bound(arr.begin(), arr.end(), target) // if found return pointer to element greater than target else return arr.end
-#define sum(arr) accumulate(arr.begin(), arr.end(), 0)
 
 using namespace std;
 
@@ -21,6 +16,11 @@ vector<int> dx = {-1, 0, 0, 1};
 vector<int> dy = {0, -1, 1, 0};
 vector<int> ddx = {-1, -1, -1, 0, 0, 1, 1, 1};
 vector<int> ddy = {-1, 0, 1, -1, 1, -1, 0, 1};
+
+int gcd(int a, int b) {
+    if(b == 0) return a;
+    return gcd(b, a % b);
+}
 
 ll factorial(ll n) {
     if(n == 0 || n == 1) return 1;
@@ -148,7 +148,32 @@ bool isAllNeighbourX(vector<vector<char>>& arr, int x, int y) {
     return true;
 }
 
+int binarySearch(vector<ll>& arr, ll x) {
+    int n = arr.size();
+
+    int low = 0;
+    int high = n - 1;
+
+    while(low <= high) {
+        int mid = low + (high - low) / 2;
+        if(arr[mid] == x) return mid;
+        else if(arr[mid] < x) low = mid + 1;
+        else high = mid - 1;
+    }
+
+    return -1;
+}
+
 void solve(){
+    ll n, result = 0, i = 5;
+    cin >> n;
+
+    while(i <= n) {
+        result += n/i;
+        i *= 5;
+    }
+
+    cout << result;
     return;
 }
 

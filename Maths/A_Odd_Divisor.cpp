@@ -149,12 +149,22 @@ bool isAllNeighbourX(vector<vector<char>>& arr, int x, int y) {
 }
 
 void solve(){
-    return;
+    ll n;
+    cin >> n;
+
+    while(n && !(n & 1)){
+        n /= 2;
+    }
+
+    if(n < 3) cout << "NO";
+    else cout << "YES";
+
+    cout << endl;
 }
 
 int main() {
     int t = 1;
-    // cin >> t;
+    cin >> t;
     while(t--) {
         solve();
     }

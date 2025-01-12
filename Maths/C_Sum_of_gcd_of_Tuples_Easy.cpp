@@ -148,7 +148,35 @@ bool isAllNeighbourX(vector<vector<char>>& arr, int x, int y) {
     return true;
 }
 
+int binarySearch(vector<ll>& arr, ll x) {
+    int n = arr.size();
+
+    int low = 0;
+    int high = n - 1;
+
+    while(low <= high) {
+        int mid = low + (high - low) / 2;
+        if(arr[mid] == x) return mid;
+        else if(arr[mid] < x) low = mid + 1;
+        else high = mid - 1;
+    }
+
+    return -1;
+}
+
 void solve(){
+    int n, result = 0;
+    cin >> n;
+
+    for(int i = 1; i <= n; i++) {
+        for(int j = 1; j <= n; j++) {
+            for(int k = 1; k <= n; k++) {
+                result += __gcd(i, __gcd(j, k));
+            }
+        }
+    }
+
+    cout << result;
     return;
 }
 

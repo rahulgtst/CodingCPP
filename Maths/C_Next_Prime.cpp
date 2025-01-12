@@ -149,6 +149,16 @@ bool isAllNeighbourX(vector<vector<char>>& arr, int x, int y) {
 }
 
 void solve(){
+    int n;
+    cin >> n;
+
+    while(true) {
+        if(isPrime(n)) {
+            cout << n;
+            break;
+        }
+        n++;
+    }
     return;
 }
 
